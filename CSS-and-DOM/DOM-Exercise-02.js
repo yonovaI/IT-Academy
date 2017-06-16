@@ -1,5 +1,6 @@
 (function(){
-    
+    //Напишете JS функция, която приема като параметри ID на елемент и масив от имена. Към елемента със съответното id да се добави лист, в който са подредени въпросните имена
+
      function styleList(id, arr){
          var selected = document.querySelector('#'+id),
              ul = document.createElement('UL'),

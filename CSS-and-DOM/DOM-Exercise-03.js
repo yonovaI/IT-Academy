@@ -1,3 +1,5 @@
+//Напишете JS фунцкия, която да взима всички <div /> елементи с даден клас и във всеки четен елемент да добавя по 1 още 1 <div />  с произволно съдържание
+
 (function(){
     function main(targeted){
         var elements = document.querySelectorAll('.'+targeted),
