@@ -15,35 +15,36 @@
 
 
      let name = document.querySelectorAll(".name"),
-         age = document.querySelector(".age");
+         age = document.querySelector("#age");
 
     function validateName(el) {
         let input = el.value;
 
         if(alphabet.indexOf(input.toLowerCase().slice(-1))<0) {
-            generateErrorMsg(el, "Invalid input");
+           document.getElementById(el.id+"Error").style.display = "block";
         }
         else{
-            if(document.getElementsByClassName("error").length>0) {
-                var node = document.getElementsByClassName("error")[0];
-                    node.style.display = 'none';
-            }
+			document.getElementById(el.id+"Error").style.display = "none";
         }
     }
 
-    function generateErrorMsg(prev, message){
-        let p = document.createElement("P");
-            p.textContent = message;
-            p.className = "error";
-
-        prev.parentNode.insertBefore(p, prev.nextSibling);
-    }
-
+	function validateAge (el) {
+		let input = parseInt(el.value);
+		
+		if(input>=18 && input <=54) {
+			document.getElementById(el.id+"Error").style.display = "none";
+		} else{
+			document.getElementById(el.id+"Error").style.display = "block";
+        }
+	}
     for(var i = 0; i<name.length; i++) {
         let currentInput = name[i];
         currentInput.addEventListener("input", function () {
             validateName(this);
-            return false;
         });
     }
+	
+	age.addEventListener("change", function(){
+		validateAge(this);
+	}) 
 } ());
